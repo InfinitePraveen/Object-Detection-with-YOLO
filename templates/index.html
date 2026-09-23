@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>YOLOv8 Object Detection | Praveen Kumar</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="container">
+        <section class="hero">
+            <p class="eyebrow">COMPUTER VISION • YOLOV8</p>
+            <h1>Object Detection with YOLO</h1>
+            <p class="subtitle">Upload an image and detect multiple objects with bounding boxes using the lightweight YOLOv8 Nano model.</p>
+        </section>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="message">{{ messages[0] }}</div>
+            {% endif %}
+        {% endwith %}
+
+        <section class="card upload-card">
+            <h2>Try the detector</h2>
+            <form method="post" enctype="multipart/form-data">
+                <label for="image">Choose an image</label>
+                <input id="image" name="image" type="file" accept="image/png,image/jpeg,image/webp" required>
+                <button type="submit">Detect Objects</button>
+            </form>
+            <p class="hint">Supported: JPG, JPEG, PNG, WEBP • Maximum size: 8 MB • CPU inference</p>
+        </section>
+
+        {% if result_url %}
+        <section class="result-grid">
+            <div class="card result-card">
+                <h2>Detection Result</h2>
+                <img class="result-image" src="{{ result_url }}" alt="YOLOv8 detection result">
+            </div>
+            <div class="card detection-card">
+                <h2>Detected Objects</h2>
+                {% if detections %}
+                    <ul>
+                    {% for item in detections %}
+                        <li><span>{{ item.label }}</span><strong>{{ item.confidence }}</strong></li>
+                    {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>No objects crossed the confidence threshold.</p>
+                {% endif %}
+            </div>
+        </section>
+        {% endif %}
+
+        <section class="card about">
+            <h2>About this project</h2>
+            <p>This portfolio project uses YOLOv8 Nano so it can run on a normal CPU without requiring a dedicated GPU. The model predicts object classes, confidence scores, and bounding boxes in one inference pipeline.</p>
+            <div class="links">
+                <a href="https://github.com/InfinitePraveen" target="_blank" rel="noopener">GitHub — InfinitePraveen</a>
+                <a href="https://www.linkedin.com/in/infinitepraveen/" target="_blank" rel="noopener">LinkedIn — Praveen Kumar</a>
+            </div>
+        </section>
+
+        <footer>
+            Built for learning, portfolio demonstration, and interview discussion.
+        </footer>
+    </main>
+</body>
+</html>
