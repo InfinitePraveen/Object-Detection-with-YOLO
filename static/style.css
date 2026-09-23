@@ -1,0 +1,30 @@
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    font-family: Inter, Arial, sans-serif;
+    background: #f4f7fb;
+    color: #18212f;
+}
+.container { max-width: 1050px; margin: 0 auto; padding: 42px 20px 60px; }
+.hero { padding: 24px 0 28px; }
+.eyebrow { font-size: 12px; letter-spacing: 2px; font-weight: 700; color: #526174; }
+h1 { margin: 8px 0 12px; font-size: clamp(34px, 6vw, 58px); line-height: 1.05; }
+h2 { margin-top: 0; }
+.subtitle { max-width: 720px; font-size: 18px; line-height: 1.6; color: #526174; }
+.card { background: white; border: 1px solid #dfe5ec; border-radius: 18px; padding: 25px; box-shadow: 0 8px 28px rgba(30, 45, 65, .07); margin-bottom: 22px; }
+.upload-card form { display: flex; flex-wrap: wrap; align-items: end; gap: 14px; }
+label { display: block; width: 100%; font-weight: 700; }
+input[type=file] { flex: 1; min-width: 240px; padding: 12px; border: 1px solid #cbd5e1; border-radius: 10px; background: #fafbfd; }
+button { border: 0; border-radius: 10px; padding: 13px 20px; font-weight: 700; cursor: pointer; background: #18212f; color: white; }
+button:hover { opacity: .9; }
+.hint { margin-bottom: 0; color: #697789; font-size: 13px; }
+.result-grid { display: grid; grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr); gap: 22px; }
+.result-image { width: 100%; border-radius: 12px; display: block; background: #eef2f7; }
+.detection-card ul { list-style: none; padding: 0; margin: 0; }
+.detection-card li { display: flex; justify-content: space-between; gap: 12px; padding: 11px 0; border-bottom: 1px solid #edf0f4; }
+.detection-card li:last-child { border-bottom: 0; }
+.message { padding: 13px 16px; border-radius: 10px; background: #fff4d6; border: 1px solid #f0d98d; margin-bottom: 20px; }
+.links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
+.links a { color: #18212f; font-weight: 700; text-decoration: none; border-bottom: 1px solid #18212f; }
+footer { text-align: center; color: #718096; font-size: 13px; padding-top: 8px; }
+@media (max-width: 760px) { .result-grid { grid-template-columns: 1fr; } .container { padding-top: 24px; } }
